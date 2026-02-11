@@ -14,5 +14,4 @@ A real-time sentiment analysis tool built with **JavaScript** and **TensorFlow.j
 * HTML5 / CSS3
 * TensorFlow.js (AI Engine)
 * GitHub Pages (Hosting)
-* 
 
