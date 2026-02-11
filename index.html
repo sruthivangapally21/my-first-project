@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Mood Mirror</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; transition: 0.5s; padding-top: 50px; }
+        input { padding: 15px; width: 300px; border-radius: 20px; border: 1px solid #ccc; }
+        #emoji { font-size: 100px; display: block; margin: 20px; }
+    </style>
+</head>
+<body>
+    <h1>AI Mood Mirror</h1>
+    <span id="emoji">😐</span>
+    <input type="text" id="userInput" placeholder="Type how you feel...">
+    <p id="status">AI is thinking...</p>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/toxicity"></script>
+
+    <script>
+        const input = document.getElementById('userInput');
+        const emoji = document.getElementById('emoji');
+        
+        // Simple logic: If text has "happy" or "good", change color!
+        input.addEventListener('input', (e) => {
+            const text = e.target.value.toLowerCase();
+            if(text.includes("happy") || text.includes("great")) {
+                document.body.style.backgroundColor = "#ccffcc";
+                emoji.innerText = "😁";
+            } else if(text.includes("sad") || text.includes("bad")) {
+                document.body.style.backgroundColor = "#ccccff";
+                emoji.innerText = "😢";
+            } else {
+                document.body.style.backgroundColor = "white";
+                emoji.innerText = "😐";
+            }
+        });
+    </script>
+</body>
+</html>
